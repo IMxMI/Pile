@@ -15,6 +15,7 @@ namespace Pile
         static void Main(string[] args)
         {
             TestePileVidePleine();
+            TestEmpilerDepiler();
         }
 
         ///<summary>
@@ -66,7 +67,8 @@ namespace Pile
         {
             if(!PilePleine(pUnePile))
             {
-                pUnePile.tabElem[pUnePile.sommet++] = PNb;
+                pUnePile.tabElem[pUnePile.sommet] = PNb;
+                pUnePile.sommet++;
             }
         }
 
@@ -81,7 +83,7 @@ namespace Pile
         {
             if (!PileVide(pUnePile))
             {
-                return pUnePile.tabElem[pUnePile.sommet--];
+                return pUnePile.tabElem[pUnePile.sommet];
             }
             else
             {
@@ -108,6 +110,20 @@ namespace Pile
             {
                 Console.WriteLine("La pile n'est pas pleine");
             }
+        }
+        static void TestEmpilerDepiler()
+        {
+            Pile unePile = new Pile();
+            InitPile(ref unePile, 5);
+            Empiler(ref unePile, 2);
+            Empiler(ref unePile, 14);
+            Empiler(ref unePile, 6);
+            Empiler(ref unePile, 22);
+            int valeurDepilee = Depiler(ref unePile);
+            Console.WriteLine("valeur dépilée : " + valeurDepilee);
+            Empiler(ref unePile, 17);
+            Empiler(ref unePile, 81);
+            Empiler(ref unePile, 34);
         }
     }
 }
