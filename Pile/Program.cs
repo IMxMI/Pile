@@ -52,7 +52,7 @@ namespace Pile
         ///<returns></returns>
         static bool PilePleine(Pile pUnePile)
         {
-            return pUnePile.sommet < pUnePile.maxElt;
+            return pUnePile.sommet == pUnePile.maxElt;
         }
 
         ///<summary>
