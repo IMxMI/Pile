@@ -35,13 +35,47 @@ namespace Pile
 
         ///<summary>
         ///retourne un booléeen indiquant si la pile est vide.
-        ///Une pile est vide si la valeur du sillet est égale à-1
+        ///Une pile est vide si la valeur du sommet est égale à-1
         ///</summary>
         ///<param name="pUnePile"></param>
         ///<returns></returns>
         static bool PileVide(Pile pUnePile)
         {
-
+            return pUnePile.sommet == -1;
         }
+
+        ///<summary>
+        ///retourne un booléeen indiquant si la pile est pleine
+        ///Une pile est pleinne si la valeur du sommet est égal à la valeur maximal
+        ///</summary>
+        ///<param name="pUnePile"></param>
+        ///<returns></returns>
+        static bool PilePleine(Pile pUnePile)
+        {
+            return pUnePile.sommet < pUnePile.maxElt;
+        }
+
+        ///<summary>
+        ///Cette méthode ajoute la valeur passé en paramètre au sommet de la pile
+        ///passée en paramètre si toutefois la pile n'est pas pleine.
+        ///Elle modifie la valeur du sommet de la pile
+        ///</summary>
+        ///<param name="pUnePile">pile sur laquelle il faut empiler</param>
+        ///<param name="PNb">Nombre à empiler</param>
+        static void Empiler(ref Pile pUnePile, int PNb)
+        {
+            if(!PilePleine(pUnePile))
+            {
+                pUnePile.tabElem[pUnePile.sommet++] = PNb;
+            }
+        }
+
+        ///<summary>
+        ///Renvoie la valeur située au sommet de la pile
+        ///met à jour la variable sommet.
+        ///Si le pile est vide, renvoie -999
+        ///</summary>
+        ///<param name="pUnePile">Pile à partir de laquelle il faut dépiler</param>
+        ///<returns>Valut dépilée ou -999</returns>
     }
 }
