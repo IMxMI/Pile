@@ -14,7 +14,7 @@ namespace Pile
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TestePileVidePleine();
         }
 
         ///<summary>
@@ -41,7 +41,7 @@ namespace Pile
         ///<returns></returns>
         static bool PileVide(Pile pUnePile)
         {
-            return pUnePile.sommet == -1;
+            return pUnePile.sommet == 0;
         }
 
         ///<summary>
@@ -77,5 +77,37 @@ namespace Pile
         ///</summary>
         ///<param name="pUnePile">Pile à partir de laquelle il faut dépiler</param>
         ///<returns>Valut dépilée ou -999</returns>
+        static int Depiler(ref Pile pUnePile)
+        {
+            if (!PileVide(pUnePile))
+            {
+                return pUnePile.tabElem[pUnePile.sommet--];
+            }
+            else
+            {
+                return -999;
+            }
+        }
+        static void TestePileVidePleine()
+        {
+            Pile unePile = new Pile();
+            InitPile(ref unePile, 5);
+            if (PileVide(unePile))
+            {
+                Console.WriteLine("La pile est vide");
+            }
+            else
+            {
+                Console.WriteLine("La pile n'est pas vide");
+            }
+            if (PilePleine(unePile))
+            {
+                Console.WriteLine("La pile est pleine");
+            }
+            else
+            {
+                Console.WriteLine("La pile n'est pas pleine");
+            }
+        }
     }
 }
