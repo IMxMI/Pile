@@ -83,6 +83,7 @@ namespace Pile
         {
             if (!PileVide(pUnePile))
             {
+                pUnePile.sommet--;
                 return pUnePile.tabElem[pUnePile.sommet];
             }
             else
